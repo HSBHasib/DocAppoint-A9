@@ -39,3 +39,26 @@ export const CencelAppointmentFunc = async (appointmentId) => {
     redirect("/dashboard");
   }
 };
+
+
+// Update Appointments Data
+export const UpdateAppointmentFunc = async (
+  updatedData,
+  appointmentId,
+) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/appointments/${appointmentId}`,
+    {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    },
+  );
+  const data = await res.json();
+  if (data.modifiedCount) {
+    toast.success(`Appointment Updated Successfully!`);
+    redirect("/dashboard");
+  }
+};
