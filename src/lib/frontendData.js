@@ -11,3 +11,10 @@ export const getTopDoctorData = async () => {
     const data = await res.json() || [];
     return data;
 }
+
+// Get Doctor Details base on their id
+export const getDoctorDataById = async (id) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctors/${id}`)
+    const data = await res.json();
+    return data;
+}
