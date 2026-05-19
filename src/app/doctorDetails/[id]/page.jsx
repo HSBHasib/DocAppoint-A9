@@ -13,6 +13,7 @@ import {
 import { FiArrowLeft } from "react-icons/fi";
 import Link from "next/link";
 import Image from "next/image";
+import AppointmentBookForm from "@/components/AppointmentBookForm";
 
 const DoctorDetails = async ({ params }) => {
   const { id } = await params;
@@ -71,12 +72,7 @@ const DoctorDetails = async ({ params }) => {
               </div>
 
               <div className="flex justify-center pt-2">
-                <button
-                  variant="secondary"
-                  className="bg-[#1e73be] hover:bg-[#165a94] text-white text-xs font-bold px-5 py-2.5 rounded-lg shadow-sm transition-all active:scale-95 duration-300"
-                >
-                  Book Appointment
-                </button>
+                <AppointmentBookForm doctorData={doctorData} />
               </div>
             </div>
 
