@@ -2,12 +2,12 @@ import React from "react";
 import { getAllDoctorData } from "@/lib/frontendData";
 import DoctorCard from "@/components/HomePage/DoctorCard";
 import SearchBar from "@/components/HomePage/SearchBar";
+import { HiOutlineSearchCircle } from "react-icons/hi";
 
-const AllAppointmentsPage = async ({searchParams}) => {
-  
+const AllAppointmentsPage = async ({ searchParams }) => {
   const searching = await searchParams;
   const searchResult = searching?.search || "";
-  
+
   const allDoctors = await getAllDoctorData(searchResult);
 
   return (
@@ -25,12 +25,24 @@ const AllAppointmentsPage = async ({searchParams}) => {
         </>
       </div>
 
-
       {/* All Appointments Card */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {allDoctors.map((doctor, idx) => (
-          <DoctorCard doctor={doctor} key={idx} />
-        ))}
+        {allDoctors.length > 0 ? (
+          allDoctors.map((doctor, idx) => (
+            <DoctorCard doctor={doctor} key={idx} />
+          ))
+        ) : (
+          <div className="h-[30vh] flex items-center flex-col justify-center col-span-3 w-[70vw] bg-gray-50 shadow-xs rounded-2xl p-8 text-center border border-gray-100 text-[#404750] text-xl font-medium">
+            <HiOutlineSearchCircle size={50} className="stroke-1 animate-bounce" />
+            <h3 className="text-xl font-bold text-[#191C20] tracking-tight">
+              No Results Found
+            </h3>
+            <p className="text-xs sm:text-sm text-[#404750] font-normal max-w-md mx-auto leading-relaxed">
+              We couldn't find any specialist matching your search. Please check
+              the spelling or try another keyword.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
