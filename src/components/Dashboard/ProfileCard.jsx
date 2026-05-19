@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react'
 import { HiOutlineMail, HiOutlineShieldCheck } from 'react-icons/hi'
-import { Button } from '@heroui/react';
+import PatientPersonalDataUpdated from './PatientPersonalDataUpdated';
 
 const ProfileCard = ({ patient }) => {
   const { name, email, image } = patient || {};
@@ -43,7 +43,7 @@ const ProfileCard = ({ patient }) => {
 
         {/* Update Profile Button */}
       <div className="pt-4 border-t border-gray-200">
-          <Button variant="outline">Update</Button>
+          <PatientPersonalDataUpdated name={name} image={image} />
       </div>
 
     </div>
