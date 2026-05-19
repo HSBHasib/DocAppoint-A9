@@ -7,7 +7,7 @@ const ProfileCard = ({ patient }) => {
   const { name, email, image } = patient || {};
 
   return (
-    <div className="w-full max-w-md bg-white rounded-3xl border border-slate-200/60 p-6 sm:p-8 space-y-6 shadow-md shadow-[#1e73be40]">
+    <div className="w-full max-w-sm bg-white rounded-3xl border border-slate-200/60 p-6 sm:p-8 space-y-6 shadow-md shadow-[#1e73be40]">
       
       <h2 className="text-sm font-bold text-[#191C20] uppercase tracking-wider border-b border-gray-200 pb-2">
         My Profile

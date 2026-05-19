@@ -26,8 +26,7 @@ const DashboardPage = async ({ searchParams }) => {
   const appointments = await getAllAppointmentsData(patientId, token);
 
   return (
-    // <div className="max-w-6xl mx-auto px-2 sm:px-4 pt-10">
-    <div className="min-h-screen max-w-6xl w-full mr-auto ml-0 px-4 sm:px-6 lg:px-14 py-10 overflow-x-hidden">
+    <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-10 overflow-x-hidden pb-10">
       <div className="space-y-3">
         {/* Header */}
         <div>
