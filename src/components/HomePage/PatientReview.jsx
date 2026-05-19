@@ -1,66 +1,13 @@
 import React from "react";
 import { HiStar, HiCheckCircle } from "react-icons/hi";
 import Marquee from "react-fast-marquee";
+import { getPatientReview } from "@/lib/frontendData";
 
-const PatientReview = () => {
-  const review1 = [
-    {
-      id: 1,
-      name: "Sultana Kamal",
-      status: "Verified Patient",
-      rating: 5,
-      comment:
-        "The appointment booking process was incredibly smooth and hassle-free. The system sent automated reminders, which helped me stay updated.",
-      date: "2 weeks ago",
-    },
-    {
-      id: 2,
-      name: "Tanvir Ahmed",
-      status: "Verified Patient",
-      rating: 5,
-      comment:
-        "Saved me hours of waiting in long hospital lines. The digital portal is very clean, lightning-fast, and easy to navigate even for seniors.",
-      date: "1 month ago",
-    },
-    {
-      id: 3,
-      name: "Nusrat Jahan",
-      status: "Verified Patient",
-      rating: 4,
-      comment:
-        "Excellent platform integration. I could easily find the right medical expert and view their available slots without any complexity.",
-      date: "3 days ago",
-    },
-  ];
-  const review2 = [
-    {
-      id: 1,
-      name: "Arifur Rahman",
-      status: "Verified Patient",
-      rating: 5,
-      comment:
-        "Brilliant user experience. I managed to reschedule my appointment with just two clicks. The interface is highly responsive on mobile too.",
-      date: "5 days ago",
-    },
-    {
-      id: 2,
-      name: "Farhana Yasmin",
-      status: "Verified Patient",
-      rating: 5,
-      comment:
-        "I am amazed by the transparency of this website. Finding doctor fees and real patient reviews made it so easy to pick the right specialist.",
-      date: "1 week ago",
-    },
-    {
-      id: 3,
-      name: "Kamrul Hasan",
-      status: "Verified Patient",
-      rating: 3,
-      comment:
-        "Highly efficient platform. The instant confirmation feature gives great peace of mind, especially during medical emergencies.",
-      date: "10 days ago",
-    },
-  ];
+const PatientReview = async () => {
+
+  const review = await getPatientReview();
+  const review1 = review.slice(0, 3);
+  const review2 = review.slice(3, 6);
 
   return (
     <section className="bg-slate-50 py-14 px-4 sm:px-6 lg:px-8">
@@ -158,4 +105,3 @@ const PatientReview = () => {
 };
 
 export default PatientReview;
-

@@ -34,3 +34,11 @@ export const getAllAppointmentsData = async (id, token) => {
     const data = await res.json() || [];
     return data;
 }
+
+
+// Get Patient Review Data
+export const getPatientReview = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/patientreview`);
+    const data = res.json() || [];
+    return data;
+}
