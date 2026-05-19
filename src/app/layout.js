@@ -4,7 +4,7 @@ import Navbar from "@/components/HomePage/Navbar/Navbar";
 import Footer from "@/components/HomePage/Footer";
 
 export const metadata = {
-  title: "Doctor Appointment",
+  title: "DocAppointment - Home Page",
   description: "This is a best and smart doctor consultation website side in the bangladesh",
 };
 

@@ -4,6 +4,11 @@ import DoctorCard from "@/components/HomePage/DoctorCard";
 import SearchBar from "@/components/HomePage/SearchBar";
 import { HiOutlineSearchCircle } from "react-icons/hi";
 
+export const metadata = {
+  title: "DocAppointment - All Appointment Page",
+  description: "All Doctors List of Data",
+};
+
 const AllAppointmentsPage = async ({ searchParams }) => {
   const searching = await searchParams;
   const searchResult = searching?.search || "";

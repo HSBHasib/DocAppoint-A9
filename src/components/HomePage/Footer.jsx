@@ -73,6 +73,7 @@ const Footer = () => {
                 <Link
                   key={link.id}
                   href={link.href}
+                  target="_blank"
                   className="p-2.5 bg-white  border border-gray-100 rounded-xl text-[#404750] hover:text-[#1e73be] hover:border-[#1e73be]/30 shadow-xs transition-all duration-300 active:scale-95"
                 >
                   {link.icon}

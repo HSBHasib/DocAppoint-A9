@@ -17,6 +17,11 @@ import AppointmentBookForm from "@/components/AppointmentBookForm";
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 
+export const metadata = {
+  title: "DocAppointment - Doctor Information",
+  description: "This page is to know more about spacific doctor",
+};
+
 const DoctorDetails = async ({ params }) => {
   const { id } = await params;
 

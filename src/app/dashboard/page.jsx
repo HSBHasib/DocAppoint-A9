@@ -6,6 +6,11 @@ import { getAllAppointmentsData } from "@/lib/frontendData";
 import AppointmentBookingCard from "@/components/Dashboard/AppointmentBookingCard";
 import Link from "next/link";
 
+export const metadata = {
+  title: "DocAppointment - Dashboard Page",
+  description: "This page show paitent all appointments and their personal profile card",
+};
+
 const DashboardPage = async ({ searchParams }) => {
   const SearchItem = await searchParams;
   const activeTab = SearchItem?.tab || "bookings";
