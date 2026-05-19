@@ -18,3 +18,10 @@ export const getDoctorDataById = async (id) => {
     const data = await res.json();
     return data;
 }
+
+// Get All Appointments Data based on patient id
+export const getAllAppointmentsData = async (id) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/appointments/${id}`);
+    const data = await res.json() || [];
+    return data;
+}

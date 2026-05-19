@@ -63,7 +63,7 @@ const PatientReview = () => {
   ];
 
   return (
-    <section className="bg-slate-50 py-14 px-4 sm:px-6 lg:px-8 font-sans">
+    <section className="bg-slate-50 py-14 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <span className="text-xs font-bold text-[#1e73be] uppercase tracking-widest bg-[#f0f7ff] px-3 py-1.5 rounded-full">
@@ -82,11 +82,11 @@ const PatientReview = () => {
         <div className="space-y-8">
 
         <Marquee>
-          <div className="max-w-6xl mx-auto flex items-center gap-6 ">
+          <div className="flex items-center">
             {review1.map((review) => (
               <div
                 key={review.id}
-                className="bg-white rounded-2xl border border-slate-100 p-6 flex flex-col justify-between transition-all duration-300"
+                className="w-[400px] mr-5 bg-white rounded-2xl border border-slate-100 p-6 flex flex-col justify-between transition-all duration-300"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -117,11 +117,11 @@ const PatientReview = () => {
           </div>
         </Marquee>
         <Marquee direction="right">
-          <div className="max-w-6xl mx-auto flex items-center gap-6 ">
+          <div className="flex items-center">
             {review2.map((review) => (
               <div
                 key={review.id}
-                className="bg-white rounded-2xl border border-slate-100 p-6 flex flex-col justify-between transition-all duration-300"
+                className="w-[400px] mr-5 bg-white rounded-2xl border border-slate-100 p-6 flex flex-col justify-between transition-all duration-300"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
