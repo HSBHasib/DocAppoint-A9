@@ -46,7 +46,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4 md:pl-12">
-            <h4 className="text-sm font-bold text-[#191C20] uppercase tracking-wider">
+            <h4 className="text-sm font-bold text-[#191C20] uppercase ">
               Quick Links
             </h4>
             {quickLinks.map((link) => (
@@ -65,7 +65,7 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold text-[#191C20] uppercase tracking-wider">
+            <h4 className="text-sm font-bold text-[#191C20] uppercase">
               Follow Us
             </h4>
             <div className="flex flex-wrap items-center gap-3">
@@ -73,7 +73,7 @@ const Footer = () => {
                 <Link
                   key={link.id}
                   href={link.href}
-                  className="p-2.5 bg-white border border-slate-200/60 rounded-xl text-[#404750] hover:text-[#1e73be] hover:border-[#1e73be]/30 shadow-2xs transition-all duration-300 active:scale-95"
+                  className="p-2.5 bg-white  border border-gray-100 rounded-xl text-[#404750] hover:text-[#1e73be] hover:border-[#1e73be]/30 shadow-xs transition-all duration-300 active:scale-95"
                 >
                   {link.icon}
                 </Link>
