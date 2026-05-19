@@ -24,6 +24,10 @@ const AppointmentBookForm = ({ doctorData }) => {
   });
 
   const formHandaler = async (data) => {
+    // Access Token
+    const getToken = await authClient.token();
+    const token = getToken?.data?.token;
+
     const {
       doctorName,
       userEmail,
@@ -48,7 +52,8 @@ const AppointmentBookForm = ({ doctorData }) => {
       reason,
     };
 
-    await appointmentsFunc(bookingAppointment)
+    await appointmentsFunc(bookingAppointment, token)
+
   };
 
   return (
@@ -259,3 +264,4 @@ const AppointmentBookForm = ({ doctorData }) => {
 };
 
 export default AppointmentBookForm;
+

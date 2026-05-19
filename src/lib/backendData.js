@@ -1,13 +1,15 @@
+import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 
 // Get Doctor Appointment
-export const appointmentsFunc = async (bookingAppointment) => {
+export const appointmentsFunc = async (bookingAppointment, token) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/appointments`,
     {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(bookingAppointment),
     },
@@ -21,15 +23,18 @@ export const appointmentsFunc = async (bookingAppointment) => {
 };
 
 
-
 // Cencel Appointment
-export const CencelAppointmentFunc = async (appointmentId) => {
+export const CencelAppointmentFunc = async (appointmentId, getToken) => {
+  // Access Token
+  const token = await getToken();
+
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/appointments/${appointmentId}`,
     {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${token}`,
       },
     },
   );
@@ -45,6 +50,7 @@ export const CencelAppointmentFunc = async (appointmentId) => {
 export const UpdateAppointmentFunc = async (
   updatedData,
   appointmentId,
+  token,
 ) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/appointments/${appointmentId}`,
@@ -52,6 +58,7 @@ export const UpdateAppointmentFunc = async (
       method: "PATCH",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(updatedData),
     },

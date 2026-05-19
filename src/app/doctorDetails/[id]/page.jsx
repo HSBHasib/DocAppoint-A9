@@ -14,11 +14,18 @@ import { FiArrowLeft } from "react-icons/fi";
 import Link from "next/link";
 import Image from "next/image";
 import AppointmentBookForm from "@/components/AppointmentBookForm";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
 
 const DoctorDetails = async ({ params }) => {
   const { id } = await params;
 
-  const doctorData = await getDoctorDataById(id);
+  // Accees Token
+  const { token } = await auth.api.getToken({
+    headers: await headers(),
+  });
+
+  const doctorData = await getDoctorDataById(id, token);
 
   const {
     name,
@@ -33,8 +40,9 @@ const DoctorDetails = async ({ params }) => {
     rating,
   } = doctorData;
 
+
   return (
-    <div className="min-h-screen bg-[#f4f7fa] py-8 pb-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#f4f7fa] pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Back Button to go all-appointments page */}
         <Link href="/all-appointments">
@@ -214,3 +222,4 @@ const DoctorDetails = async ({ params }) => {
 };
 
 export default DoctorDetails;
+

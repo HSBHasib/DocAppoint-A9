@@ -17,11 +17,17 @@ const DashboardPage = async ({ searchParams }) => {
   const patient = session?.user;
   const patientId = patient?.id;
 
+  // Accees Token
+  const { token } = await auth.api.getToken({
+    headers: await headers(),
+  });
+
   // Call the appoinment func
-  const appointments = await getAllAppointmentsData(patientId);
+  const appointments = await getAllAppointmentsData(patientId, token);
 
   return (
-    <div className=" sm:min-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 font-sans text-left">
+    // <div className="max-w-6xl mx-auto px-2 sm:px-4 pt-10">
+    <div className="min-h-screen max-w-6xl w-full mr-auto ml-0 px-4 sm:px-6 lg:px-14 py-10 overflow-x-hidden">
       <div className="space-y-3">
         {/* Header */}
         <div>
@@ -31,7 +37,7 @@ const DashboardPage = async ({ searchParams }) => {
         </div>
 
         {/* Bookings and Profile Button */}
-        <div className="bg-gray-100 rounded-lg p-1 inline-block space-x-2">
+        <div className="bg-gray-100 rounded-lg p-1 inline-block space-x-2 ">
           <Link href="/dashboard?tab=bookings">
             <button
               className={`px-5 py-2 rounded-lg text-xs transition-all duration-200 ${
@@ -79,7 +85,7 @@ const DashboardPage = async ({ searchParams }) => {
               )}
             </div>
           ) : (
-            <div className="max-w-sm mx-auto flex justify-center">
+            <div>
               <ProfileCard patient={patient} />
             </div>
           )}
@@ -90,3 +96,4 @@ const DashboardPage = async ({ searchParams }) => {
 };
 
 export default DashboardPage;
+

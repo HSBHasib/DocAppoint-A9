@@ -4,6 +4,7 @@ import React from "react";
 import { Button, Modal, Surface } from "@heroui/react";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
+import { UpdateAppointmentFunc } from "@/lib/backendData";
 
 const UpdateAppointmentData = ({ appointment }) => {
   const { data: session } = authClient.useSession();
@@ -27,6 +28,10 @@ const UpdateAppointmentData = ({ appointment }) => {
   });
 
   const formHandaler = async (data) => {
+    // Access Token
+    const getToken = await authClient.token();
+    const token = getToken?.data?.token;
+
     const { doctorName, patientName, date, time, reason } = data;
 
     const updatedData = {
@@ -36,7 +41,7 @@ const UpdateAppointmentData = ({ appointment }) => {
       time,
       reason,
     };
-    await UpdateAppointmentFunc(updatedData, appointmentId);
+    await UpdateAppointmentFunc(updatedData, appointmentId, token);
   };
 
   return (

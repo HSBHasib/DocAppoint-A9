@@ -3,9 +3,18 @@
 import React from "react";
 import { AlertDialog, Button } from "@heroui/react";
 import { CencelAppointmentFunc } from "@/lib/backendData";
+import { authClient } from "@/lib/auth-client";
 
 const DeleteAlertDialog = ({ _id, doctorName }) => {
   const appointmentId = _id;
+
+  const handleCencelAppointmentToken = async () => {
+    // Access Token
+    const getToken = await authClient.token();
+    const token = getToken?.data?.token;
+    return token
+  };
+
   return (
     <div>
       <AlertDialog>
@@ -31,7 +40,7 @@ const DeleteAlertDialog = ({ _id, doctorName }) => {
                   Back
                 </Button>
                 <Button
-                  onClick={() => CencelAppointmentFunc(appointmentId)}
+                  onClick={() => CencelAppointmentFunc(appointmentId, handleCencelAppointmentToken)}
                   type="submit"
                   slot="close"
                   variant="danger-soft"
@@ -49,3 +58,4 @@ const DeleteAlertDialog = ({ _id, doctorName }) => {
 };
 
 export default DeleteAlertDialog;
+

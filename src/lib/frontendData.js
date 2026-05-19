@@ -13,15 +13,24 @@ export const getTopDoctorData = async () => {
 }
 
 // Get Doctor Details base on their id
-export const getDoctorDataById = async (id) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctors/${id}`)
+export const getDoctorDataById = async (id, token) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctors/${id}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    });
     const data = await res.json();
     return data;
 }
 
+
 // Get All Appointments Data based on patient id
-export const getAllAppointmentsData = async (id) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/appointments/${id}`);
+export const getAllAppointmentsData = async (id, token) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/appointments/${id}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    });
     const data = await res.json() || [];
     return data;
 }
