@@ -42,7 +42,7 @@ const DoctorDetails = async ({ params }) => {
 
 
   return (
-    <div className="min-h-screen bg-[#f4f7fa] pb-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-[#f4f7fa] pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Back Button to go all-appointments page */}
         <Link href="/all-appointments">
@@ -109,7 +109,7 @@ const DoctorDetails = async ({ params }) => {
           {/* Doctor Detials - (Right side) */}
           <div className="lg:col-span-2 grid grid-cols-2 gap-5">
             {/* Professional Biography Card */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm space-y-4 relative">
+            <div className="sm:col-span-1 col-span-2 bg-white rounded-2xl p-6 sm:p-8 shadow-sm space-y-4 relative">
               <h3 className="text-xl font-semibold text-[#191C20] flex items-center gap-2">
                 <HiOutlineDocumentText size={22} className="text-[#1e73be]" />{" "}
                 Professional Biography
@@ -135,9 +135,9 @@ const DoctorDetails = async ({ params }) => {
               </div>
             </div>
 
-            <div>
               {/* Location Card */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm space-y-4">
+            {/* <div> */}
+              <div className="sm:col-span-1 col-span-2 bg-white rounded-2xl p-6 sm:p-8 shadow-sm space-y-4">
                 <h3 className="text-xl font-semibold text-[#191C20] flex items-center gap-2">
                   <HiOutlineLocationMarker
                     size={22}
@@ -173,7 +173,7 @@ const DoctorDetails = async ({ params }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            {/* </div> */}
 
             {/* Availability Card (Morning/Evening Session) */}
             <div className="bg-white col-span-2 rounded-2xl border border-slate-100 p-6 sm:p-8 shadow-sm space-y-4">
