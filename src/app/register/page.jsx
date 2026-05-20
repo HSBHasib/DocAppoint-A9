@@ -36,34 +36,43 @@ const RegisterPage = () => {
     formState: { errors },
   } = useForm();
 
+
+
   const formHandaler = async (data) => {
+  try {
     const { name, image, email, password } = data;
-    const { data: dets, error } = await authClient.signUp.email({
+
+    const response = await authClient.signUp.email({
       name,
       image,
       email,
       password,
     });
 
-    // Error
-    if (error) {
-      toast.error(error.message);
+    if (response.error) {
+      toast.error(response.error.message || "Registration failed");
       return;
     }
 
-    // Success
-    if (dets) {
-      toast.success("Register Successful");
-      reset();
+    toast.success("Register Successful");
+    reset();
 
-      setTimeout(() => {
-        router.push("/login");
-      }, 600);
-    }
-  };
+    setTimeout(() => {
+      router.push("/login");
+    }, 600);
+
+  } catch (err) {
+    console.log(err);
+
+    toast.error(
+      err?.message || "Something went wrong"
+    );
+  }
+};
+
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2  bg-slate-50">
+    <div className="grid grid-cols-1 lg:grid-cols-2 bg-slate-50">
       {/* Left Side - (Simple Image and Some Text) */}
       <div className="hidden lg:flex flex-col items-center justify-center">
         <div className="max-w-[450px] w-full text-center space-y-6">
